@@ -1,0 +1,5 @@
+{
+  "name": "Data Processor Scan",
+  "description": "A robust legal tool that analyses contracts against UK GDPR Article 28 requirements using Gemini AI.",
+  "requestFramePermissions": []
+}
