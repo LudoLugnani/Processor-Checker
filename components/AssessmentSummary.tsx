@@ -1,7 +1,7 @@
 import React from 'react';
 import { OverallAssessment, ComplianceStatus } from '../types';
 import { STATUS_COLORS, STATUS_ICONS } from '../constants';
-import { CheckCircle2, AlertTriangle, Download } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, FileText } from 'lucide-react';
 
 interface AssessmentSummaryProps {
   assessment: OverallAssessment;
@@ -28,10 +28,10 @@ const AssessmentSummary: React.FC<AssessmentSummaryProps> = ({ assessment, onDow
         </div>
         <button 
           onClick={onDownload}
-          className="px-4 py-2 border border-slate-300 rounded-lg text-slate-600 hover:bg-slate-50 font-medium text-sm flex items-center gap-2 transition-colors"
+          className="px-4 py-2 bg-legal-600 text-white rounded-lg hover:bg-legal-700 font-medium text-sm flex items-center gap-2 transition-colors shadow-sm"
         >
-          <Download className="w-4 h-4" />
-          Export Report
+          <FileText className="w-4 h-4" />
+          Download Remediation Report
         </button>
       </div>
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Scale, Loader2, ArrowLeft, RefreshCcw } from 'lucide-react';
 import { analyzeContract } from './services/geminiService';
+import { generateHTMLReport } from './services/reportGenerator';
 import { ComplianceReport, DocumentType } from './types';
 import FileUpload from './components/FileUpload';
 import AssessmentSummary from './components/AssessmentSummary';
@@ -32,11 +33,12 @@ function App() {
 
   const handleDownload = () => {
     if (!report) return;
-    const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
+    const htmlContent = generateHTMLReport(report);
+    const blob = new Blob([htmlContent], { type: 'text/html' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'art28-compliance-report.json';
+    a.download = 'Data-Processor-Remediation-Report.html';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
